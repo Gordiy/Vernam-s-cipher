@@ -1,5 +1,6 @@
 """
-Linear feedback shift register. 
+Linear feedback shift register.
+Realized by: https://ru.wikipedia.org/wiki/Регистр_сдвига_с_линейной_обратной_связью
 """
 
 

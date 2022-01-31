@@ -61,5 +61,23 @@ class BBS:
         :param n: number of x
         :return: return x in 
         """
-        val = pow(2, n, lcm(self.p-1, self.p-1))
+        val = pow(2, n, int(lcm(self.p-1, self.p-1)))
         return pow(self.seed, val, self.m_factor) % 2
+
+    @staticmethod
+    def get_random_p_q():
+        check = False
+        q = 0
+        
+        while not check:
+            upperbound = 26
+            q = randint(0, upperbound)
+            check = True
+            for i in range(2, q):
+                if q % i == 0:
+                    check = False
+
+            if q % 4 != 3:
+                check = False
+
+        return q

@@ -6,7 +6,7 @@ class VernamCipher:
     def __init__(self):
         self.encryption_arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-    def get_key(self, length: int) -> str:
+    def get_key_based_on_bbs(self, length: int) -> str:
         key = ""
 
         for _ in range(length):
@@ -14,8 +14,8 @@ class VernamCipher:
             while (num > 26):
                 upperbound = 26
                 q = randint(0, upperbound)
-                bbs = BBS(11, 19)
-                num = bbs.get_x_n(q)
+                bbs = BBS(BBS.get_random_p_q(), BBS.get_random_p_q())
+                num = int(bbs.get_x_n(q))
             key += self.encryption_arr[num]
 
         return key

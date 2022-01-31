@@ -18,9 +18,6 @@ class LFSR:
             first_byte = register[0]
             register[0] = register[11] ^ register[10]
 
-            # register[11] = register[10]
-            # register[10] = register[9]
-
             for j in range(len(register)-1, 1, -1):
                 register[j] = register[j-1]
 
